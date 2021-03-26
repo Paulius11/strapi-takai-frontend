@@ -1,0 +1,73 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tracks",
+  "info": {
+    "name": "track",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true,
+      "minLength": 3
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "rating": {
+      "type": "float",
+      "max": 10,
+      "min": 1
+    },
+    "difficulty": {
+      "type": "enumeration",
+      "enum": [
+        "EASY",
+        "MEDIUM",
+        "HARD"
+      ]
+    },
+    "region": {
+      "type": "enumeration",
+      "enum": [
+        "VILNIUS",
+        "KAUNAS",
+        "KLAIPEDA",
+        "MARIJAMPOLE",
+        "PANEVEZYS",
+        "SIAULIAI",
+        "TAURAGE",
+        "TELSIAI",
+        "UTENA"
+      ]
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    },
+    "published": {
+      "type": "boolean",
+      "private": false,
+      "default": false
+    },
+    "username": {
+      "plugin": "admin",
+      "model": "user"
+    }
+  }
+}
